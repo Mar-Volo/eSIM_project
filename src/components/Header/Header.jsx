@@ -1,5 +1,5 @@
 import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
+import "react-multi-carousel/lib/styles.css";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
 import Navigation from "../Navigation/Navigation";
@@ -21,18 +21,18 @@ import bottomSlide3 from "../../images/phone-slides/bottom-slides/bottom3.jpg";
 const bottomSliderResponsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 1, // optional, default to 1.
+    items: 1,
+    slidesToSlide: 1, 
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3,
-    slidesToSlide: 1, // optional, default to 1.
+    items: 1,
+    slidesToSlide: 1, 
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 3,
-    slidesToSlide: 1, // optional, default to 1.
+    items: 1,
+    slidesToSlide: 1, 
   },
 };
 
@@ -79,7 +79,6 @@ const Header = () => {
     slideShow__bottomWrapper,
     slideShow__bottomItem,
   } = styles;
-  const { src, alt } = topSlides;
   return (
     <header className={header}>
       <div className={header__topLine}>
@@ -150,7 +149,7 @@ const Header = () => {
               autoPlay={true}
               autoPlaySpeed={3000}
               responsive={bottomSliderResponsive}
-              removeArrowOnDeviceType={["tablet", "mobile", "desctop"]}
+              removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
               containerClass={slideShow__bottomWrapper}
               itemClass={slideShow__bottomItem}
             >
@@ -158,7 +157,6 @@ const Header = () => {
                 return (
                   <div key={id}>
                     <img
-                      clas
                       width="220"
                       height="auto"
                       loading="lazy"

@@ -212,12 +212,14 @@
   bottom: 166px;
   width: 220px;
   overflow: hidden;
+  display: flex;
   ul {
-    display: flex;
+    left: 220px;
+    width: inherit;
   }
 }
 .slideShow__bottomItem {
-  width: 100% !important;
+  width: inherit !important;
   img {
     border-radius: 15px;
   }
