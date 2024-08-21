@@ -1,0 +1,45 @@
+@import "modern-normalize";
+:root {
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  color: #6A7577;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+section {
+  width: 100%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

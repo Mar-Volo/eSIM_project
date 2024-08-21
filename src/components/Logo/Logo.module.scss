@@ -1,0 +1,31 @@
+.logo {
+font-weight: 700;
+font-size: 20px;
+line-height: 110%;
+letter-spacing: 0.07em;
+text-transform: uppercase;
+color: #091F24;
+position: relative;
+width: 240px;
+padding: 38px 0;
+margin-right: 236px;
+transition: all 250ms ease-in-out;
+&::before{
+content: '';
+position: absolute;
+width: 7px;
+height: 7px;
+border-radius: 50%;
+left: -15px;
+top: 50%;
+transform: translateY(-50%);
+background-color: #6AD0E7;
+transition: all 250ms ease-in-out;
+}
+&:hover {
+    color: #6AD0E7;
+    &::before {
+        background-color: #091F24;
+    }
+}
+}

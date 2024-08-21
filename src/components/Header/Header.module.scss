@@ -1,0 +1,224 @@
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background-image: url("../../images/hero-bg/bg.png");
+  background-repeat: no-repeat;
+  background-position: right 0 top 180px;
+  background-size: 1050px 480px;
+  // 1050 480
+}
+.header__elipse {
+  position: absolute;
+  background-color: #6ad0e7;
+  border-radius: 50%;
+  width: 705px;
+  height: 705px;
+  top: -216px;
+  right: -60px;
+  z-index: -1;
+}
+.header__topLine {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  width: 100%;
+  padding: 0 100px;
+}
+.header__tools {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+}
+.langSelectBtn {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 160%;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: #091f24;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
+.langIcon {
+  margin-right: 10px;
+}
+.logIn {
+  color: #fff;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background-color: #1b6d80;
+  }
+}
+.loginIcon {
+  margin-right: 10px;
+}
+
+.hero__container {
+  display: flex;
+  align-items: center;
+}
+.hero__titleBox {
+  width: 585px;
+  margin-right: 140px;
+}
+.hero__title {
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 110%;
+  color: #091f24;
+  margin-bottom: 50px;
+}
+.titleAccent {
+  color: #ffffff;
+  width: 386px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6ad0e7;
+  border-radius: 12px;
+}
+.hero__dicription {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  color: #091f24;
+  opacity: 0.55;
+  margin-bottom: 70px;
+}
+.hero__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    border-top: 1px solid #6ad0e7;
+    border-bottom: 1px solid #6ad0e7;
+    border-left: none;
+    border-right: none;
+    border-radius: 44px;
+    transition: all 250ms ease-in-out;
+    transform: scaleX(0);
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    border-left: 1px solid #6ad0e7;
+    border-right: 1px solid #6ad0e7;
+    border-radius: 44px;
+    transition: all 250ms ease-in-out;
+    transform: scaleY(0);
+    pointer-events: none;
+  }
+  &:hover,
+  &:focus {
+    &::before {
+      transform: scaleX(1);
+    }
+    &::after {
+      transform: scaleY(1);
+    }
+    .hero__searchIconBtn {
+      background-color: #6ad0e7;
+      svg {
+        fill: #fff;
+        opacity: 1;
+      }
+    }
+  }
+}
+.hero__searchIconBtn {
+  color: #6a7577;
+  background-color: transparent;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 10px;
+  left: 10px;
+  transition: all 250ms ease-in-out;
+  svg {
+    fill: #6a7577;
+    opacity: 0.5;
+    transition: all 250ms ease-in-out;
+  }
+}
+
+.searchBtn {
+  text-transform: uppercase;
+  width: 133px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  padding: 13px 38px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 160%;
+}
+.hero__input {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 13px rgba(18, 33, 62, 0.1);
+  border-radius: 44px;
+  padding-left: 60px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 100%;
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    text-transform: uppercase;
+    color: #091f24;
+    opacity: 0.5;
+  }
+}
+.slideShow {
+  position: relative;
+}
+.slideShow__phone {
+  width: 508px;
+}
+.slideShow__topWrapper {
+  width: 240px;
+  position: absolute;
+  top: 90px;
+  left: 137px;
+  padding-top: 26px;
+  padding-left: 13px;
+  padding-right: 13px;
+  overflow: hidden;
+}
+.slideShow__topList {
+  display: flex;
+  gap: 7px;
+}
+.slideShow__bottomWrapper {
+  position: absolute;
+  left: 147px;
+  bottom: 166px;
+  width: 220px;
+  overflow: hidden;
+  ul {
+    display: flex;
+  }
+}
+.slideShow__bottomItem {
+  width: 100% !important;
+  img {
+    border-radius: 15px;
+  }
+}
