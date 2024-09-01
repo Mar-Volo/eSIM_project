@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Container from "../Container/Container";
@@ -6,7 +7,7 @@ import Navigation from "../Navigation/Navigation";
 import Button from "../Button/Button";
 import ButtonStyleLink from "../ButtonStyleLink/ButtonStyleLink";
 import IconButton from "../IconButton/IconButton";
-import styles from "./Header.module.scss";
+import HeroTable from "./HeroTable/HeroTable";
 import svgSprite from "../../images/icons/sprite.svg";
 import phoneImg from "../../images/phone/phone.png";
 import slidTop1 from "../../images/phone-slides/top1.jpg";
@@ -17,22 +18,40 @@ import slidTop5 from "../../images/phone-slides/top5.jpg";
 import bottomSlide1 from "../../images/phone-slides/bottom-slides/bottom1.jpg";
 import bottomSlide2 from "../../images/phone-slides/bottom-slides/bottom2.jpg";
 import bottomSlide3 from "../../images/phone-slides/bottom-slides/bottom3.jpg";
+import styles from "./Header.module.scss";
+const topSliderResponsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3.3,
+    slidesToSlide: 3.3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 3,
+    slidesToSlide: 3,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 3,
+    slidesToSlide: 3,
+  },
+};
 
 const bottomSliderResponsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 1,
-    slidesToSlide: 1, 
+    slidesToSlide: 1,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 1,
-    slidesToSlide: 1, 
+    slidesToSlide: 1,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1, 
+    slidesToSlide: 1,
   },
 };
 
@@ -51,6 +70,7 @@ const bottomSlides = [
 ];
 
 const Header = () => {
+  const [isSearchInputOnFocus, setIsSearchInputOnFocus] = useState(false);
   const {
     header,
     header__topLine,
@@ -73,12 +93,19 @@ const Header = () => {
     header__elipse,
     hero__searchIconBtn,
     hero__searchIcon,
-    slideShow__topList,
     slideShow__topItem,
     slideShow__topWrapper,
     slideShow__bottomWrapper,
     slideShow__bottomItem,
+    _focusInput,
   } = styles;
+  const focusHandler = () => {
+    setIsSearchInputOnFocus(true);
+  };
+  const blurHandler = () => {
+    setIsSearchInputOnFocus(false);
+  };
+  console.log(isSearchInputOnFocus);
   return (
     <header className={header}>
       <div className={header__topLine}>
@@ -110,13 +137,23 @@ const Header = () => {
               Buy an international eSIM card, stay connected wherever you go,
               and avoid expensive phone bills
             </p>
-            <label className={hero__label} htmlFor="">
+            <label
+              className={
+                isSearchInputOnFocus !== false
+                  ? `${hero__label} ${_focusInput}`
+                  : `${hero__label}`
+              }
+              htmlFor="search-input"
+            >
               <IconButton className={hero__searchIconBtn}>
                 <svg className={hero__searchIcon} width="25" height="25">
                   <use href={svgSprite + "#search"}></use>
                 </svg>
               </IconButton>
               <input
+                onFocus={focusHandler}
+                onBlur={blurHandler}
+                id="search-input"
                 placeholder="Where do you need internet?"
                 className={hero__input}
                 type="text"
@@ -133,17 +170,24 @@ const Header = () => {
               alt="phone slide-show"
             />
 
-            <div className={slideShow__topWrapper}>
-              <ul className={slideShow__topList}>
-                {topSlides.map(({ src, alt, id }) => {
-                  return (
-                    <li key={id} className={slideShow__topItem}>
-                      <img loading="lazy" src={src} alt={alt} />
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            <Carousel
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={4000}
+              containerClass={slideShow__topWrapper}
+              responsive={topSliderResponsive}
+              removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+              itemClass={slideShow__topItem}
+            >
+              {topSlides.map(({ src, alt, id }) => {
+                return (
+                  <div key={id}>
+                    <img loading="lazy" src={src} alt={alt} />
+                  </div>
+                );
+              })}
+            </Carousel>
+            <HeroTable />
             <Carousel
               infinite={true}
               autoPlay={true}

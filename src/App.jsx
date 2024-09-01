@@ -1,4 +1,5 @@
-import Header from "./components/Header/Header"
+import Header from "./components/Header/Header";
+import Countries from "./components/Countries/Countries";
 
 function App() {
  
@@ -6,6 +7,9 @@ function App() {
   return (
     <>
     <Header/>
+    <main className="main">
+      <Countries/>
+    </main>
     </>
   )
 }

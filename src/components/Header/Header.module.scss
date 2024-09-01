@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   background-position: right 0 top 180px;
   background-size: 1050px 480px;
-  // 1050 480
 }
 .header__elipse {
   position: absolute;
@@ -22,7 +21,6 @@
 .header__topLine {
   display: flex;
   align-items: center;
-  // justify-content: space-between;
   width: 100%;
   padding: 0 100px;
 }
@@ -94,22 +92,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    bottom: -1px;
-    right: -1px;
-    border-top: 1px solid #6ad0e7;
-    border-bottom: 1px solid #6ad0e7;
-    border-left: none;
-    border-right: none;
-    border-radius: 44px;
-    transition: all 250ms ease-in-out;
-    transform: scaleX(0);
-    pointer-events: none;
-  }
+  &::before,
   &::after {
     content: "";
     position: absolute;
@@ -117,27 +100,44 @@
     left: -1px;
     bottom: -1px;
     right: -1px;
-    border-left: 1px solid #6ad0e7;
-    border-right: 1px solid #6ad0e7;
     border-radius: 44px;
     transition: all 250ms ease-in-out;
-    transform: scaleY(0);
     pointer-events: none;
   }
-  &:hover,
-  &:focus {
+
+  &::before {
+    border-top: 1px solid #6ad0e7;
+    border-bottom: 1px solid #6ad0e7;
+    transform: scaleX(0);
+  }
+
+  &::after {
+    border-left: 1px solid #6ad0e7;
+    border-right: 1px solid #6ad0e7;
+    transform: scaleY(0);
+  }
+  &:hover {
+    &::after,
     &::before {
-      transform: scaleX(1);
-    }
-    &::after {
-      transform: scaleY(1);
+      transform: scale(1);
     }
     .hero__searchIconBtn {
-      background-color: #6ad0e7;
+      background-color: #6ad0e754;
       svg {
-        fill: #fff;
         opacity: 1;
       }
+    }
+  }
+}
+._focusInput {
+  &::after,
+  &::before {
+    transform: scale(1);
+  }
+  .hero__searchIconBtn {
+    background-color: #6ad0e754;
+    svg {
+      opacity: 1;
     }
   }
 }
@@ -145,10 +145,11 @@
   color: #6a7577;
   background-color: transparent;
   position: absolute;
-  width: 35px;
-  height: 35px;
-  top: 10px;
-  left: 10px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  top: 7px;
+  left: 7px;
   transition: all 250ms ease-in-out;
   svg {
     fill: #6a7577;
@@ -170,6 +171,8 @@
   line-height: 160%;
 }
 .hero__input {
+  display: block;
+  position: relative;
   background-color: #ffffff;
   box-shadow: 0px 4px 13px rgba(18, 33, 62, 0.1);
   border-radius: 44px;
@@ -177,6 +180,7 @@
   padding-top: 18px;
   padding-bottom: 18px;
   width: 100%;
+  transition: all 250ms ease-in-out;
   &::placeholder {
     font-weight: 400;
     font-size: 14px;
@@ -186,6 +190,7 @@
     opacity: 0.5;
   }
 }
+
 .slideShow {
   position: relative;
 }
@@ -193,28 +198,28 @@
   width: 508px;
 }
 .slideShow__topWrapper {
-  width: 240px;
+  width: 220px;
   position: absolute;
   top: 90px;
-  left: 137px;
+  left: 147px;
   padding-top: 26px;
-  padding-left: 13px;
-  padding-right: 13px;
   overflow: hidden;
+  ul {
+    gap: 7px;
+    width: inherit;
+  }
+  li {
+    width: 63px !important;
+  }
 }
-.slideShow__topList {
-  display: flex;
-  gap: 7px;
-}
+
 .slideShow__bottomWrapper {
   position: absolute;
   left: 147px;
   bottom: 166px;
   width: 220px;
-  overflow: hidden;
-  display: flex;
+
   ul {
-    left: 220px;
     width: inherit;
   }
 }
